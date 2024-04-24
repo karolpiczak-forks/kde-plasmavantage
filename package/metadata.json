@@ -1,0 +1,22 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "khirac@proton.me",
+                "Name": "Scias"
+            }
+        ],
+        "Category": "Utilities",
+        "Description": "Take full control of your Lenovo Legion laptop",
+        "Description[fr]": "Prenez le contrôle de votre ordinateur Lenovo Legion",
+        "Icon": "computer-laptop-symbolic",
+        "Id": "com.gitlab.scias.plasmavantage",
+        "Name": "PlasmaVantage",
+        "Name[fr]": "PlasmaVantage",
+        "Version": "0.01",
+        "License": "Mozilla Public License 2.0",
+        "Website": "https://www.gitlab.com/Scias/plasmavantage"
+    },
+    "KPackageStructure": "Plasma/Applet",
+    "X-Plasma-API-Minimum-Version": "6.0"
+}
