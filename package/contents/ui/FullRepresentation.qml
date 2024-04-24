@@ -7,61 +7,64 @@ import org.kde.plasma.extras as PlasmaExtras
 import org.kde.kirigami 2.20 as Kirigami
 import org.kde.notification
 
-Item {
-    GridView {
-        id: grid
-        anchors.fill: parent
+PlasmaExtras.Representation {
+
+    implicitWidth: Kirigami.Units.gridUnit * 20
+    implicitHeight: mainList.height + Kirigami.Units.largeSpacing
+
+    Layout.preferredWidth: implicitWidth
+    Layout.minimumWidth: implicitWidth
+    Layout.preferredHeight: implicitHeight
+    Layout.maximumHeight: implicitHeight
+    Layout.minimumHeight: implicitHeight
+
+    ListView {
+        id: mainList
         model: vantageModel
 
-        highlight: PlasmaExtras.Highlight {}
-        highlightFollowsCurrentItem: true
-        currentIndex: -1
+        interactive: false
+        spacing: Kirigami.Units.smallSpacing
 
-        cellWidth: 150
-        cellHeight: 100
+        anchors.verticalCenter: parent.verticalCenter
+        width: parent.width
+        height: contentHeight
 
         focus: true
         delegate: PlasmaComponents.ItemDelegate {
-            width: grid.cellWidth
-            height: grid.cellHeight
-            ColumnLayout {
-                anchors.fill: parent
-                anchors.margins: Kirigami.Units.smallSpacing
-                spacing: Kirigami.Units.smallSpacing
+            //enabled: value == 0 || value == 1
+            width: parent ? parent.width : 0
+            contentItem: RowLayout {
+                Layout.fillWidth: true
                 Kirigami.Icon {
-                    Layout.fillWidth: true
-                    opacity: 1
-                    source: plasmoid.icon
+                    scale: 0.8
+                    source: Qt.resolvedUrl("../../assets/icons/" + pIcon + ".svg")
                     color: Kirigami.Theme.colorSet
                     smooth: true
                     isMask: true
                 }
+                /*Kirigami.Heading {
+                    Layout.fillWidth: true
+                    text: name
+                }*/
                 PlasmaComponents.Label {
                     Layout.fillWidth: true
-                    Layout.fillHeight: true
-                    horizontalAlignment: Text.AlignHCenter
                     text: name
-                    //elide: Text.ElideRight
-                    wrapMode: Text.WordWrap
+                    elide: Text.ElideRight
                 }
+
                 PlasmaComponents.Switch {
                     Layout.alignment: Qt.AlignHCenter
                     checked: value
                     onToggled: {
-                        vantageMgr.toggleParam(module, param, 1-value)
-                        checked = Qt.binding(() => value)
+                        console.log(Qt.resolvedUrl("../../assets/icons/" + pIcon + ".svg"))
+                        //vantageMgr.toggleParam(module, param, 1-value)
+                        //checked = Qt.binding(() => value)
                     }
+                    HoverHandler { cursorShape: Qt.PointingHandCursor }
                 }
             }
-        }
-    }
-
-    Connections {
-        target: vantageMgr
-
-        function onParamUpdate(index, value) {
-            console.log("SIGNAL : " + index + " / " + value)
-            vantageModel.setProperty(index, "value", value)
+            HoverHandler { cursorShape: Qt.WhatsThisCursor}
+            PlasmaComponents.ToolTip { text: desc }
         }
     }
 }

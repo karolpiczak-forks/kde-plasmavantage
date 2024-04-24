@@ -13,58 +13,69 @@ Item {
     readonly property string ideapadMod: "ideapad_acpi/VPC2004:00/"
     readonly property string legionMod: "legion/PNP0C09:00/"
 
-    enum ControlType {
-        Readonly,
-        Toggle
-    }
-
     property var vantageControls: [{
         "name" : "Fn lock",
+        "desc" : "When enabled, the multimedia functions will be accessible without having to hold the Fn key.",
+        "pIcon" : "fnlock",
         "param" : "fn_lock",
-        "type" : VantageManager.Toggle,
         "module" : ideapadMod,
+        "needsReboot" : false,
         "value" : -1,
     },{
         "name" : "Super key",
+        "desc" : "Whether to enable or not the Super/Windows key.",
+        "pIcon" : "superkey",
         "param" : "winkey",
-        "type" : VantageManager.Toggle,
         "module" : legionMod,
+        "needsReboot" : false,
         "value" : -1,
     },{
         "name" : "Touchpad",
+        "desc" : "Whether to enable or not the laptop's touchpad",
+        "pIcon" : "touchpad",
         "param" : "touchpad",
-        "type" : VantageManager.Toggle,
         "module" : legionMod,
+        "needsReboot" : false,
         "value" : -1,
     },{
         "name" : "Battery conservation mode",
+        "desc" : "When enabled, the battery will not charge above a certain value (usually around 50-70%) in order to extend its lifespan.",
+        "pIcon" : "batsave",
         "param" : "conservation_mode",
-        "type" : VantageManager.Toggle,
         "module" : ideapadMod,
+        "needsReboot" : false,
         "value" : -1,
     },{
         "name" : "Rapid charge mode",
+        "desc" : "Allows the battery to charge faster at the cost of its lifespan.",
+        "pIcon" : "fastcharge",
         "param" : "rapidcharge",
-        "type" : VantageManager.Toggle,
         "module" : legionMod,
+        "needsReboot" : false,
         "value" : -1,
     },{
         "name" : "USB always ON",
+        "desc" : "Keep the USB ports always powered even when the laptop is suspended.",
+        "pIcon" : "usbcharging",
         "param" : "usb_charging",
-        "type" : VantageManager.Toggle,
         "module" : ideapadMod,
+        "needsReboot" : false,
         "value" : -1,
     },{
         "name" : "Display overdrive",
+        "desc" : "Reduces the display latency in order to limit ghosting and trailing images.\nIncreases power consumption and may introduce other graphical defects.",
+        "pIcon" : "overdrive",
         "param" : "overdrive",
-        "type" : VantageManager.Toggle,
         "module" : legionMod,
+        "needsReboot" : false,
         "value" : -1,
     },{
-        "name" : "Hybrid graphics",
+        "name" : "Hybrid graphics mode",
+        "desc" : "Enables the processor's integrated graphics.\nDecreases power consumption by allowing the dedicated GPU to power down and work only when necessary but slighty decreases performance.\nReboot is required to apply the change.",
+        "pIcon" : "hybrid",
         "param" : "gsync",
-        "type" : VantageManager.Toggle,
         "module" : legionMod,
+        "needsReboot" : true,
         "value" : -1,
     }]
 
@@ -109,6 +120,8 @@ Item {
             for (index = 0; index < vantageModel.count; index++) {
                 if (cmd.includes(vantageModel.get(index).param)) break
             }
+
+            if (index >= vantageModel.count) return
 
             if (cmd.startsWith("cat")) {
                 let value = parseInt(stdout)
