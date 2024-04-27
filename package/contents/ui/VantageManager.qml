@@ -15,7 +15,8 @@ Item {
 
     property var vantageControls: [{
         "name" : "Fn lock",
-        "desc" : "When enabled, the multimedia functions will be accessible without having to hold the Fn key.",
+        "desc" : "Access multimedia keys without holding Fn",
+        "tip" : "When enabled, the multimedia functions will be accessible without having to hold the Fn key.",
         "pIcon" : "fnlock",
         "param" : "fn_lock",
         "module" : ideapadMod,
@@ -23,7 +24,8 @@ Item {
         "value" : -1,
     },{
         "name" : "Super key",
-        "desc" : "Whether to enable or not the Super/Windows key.",
+        "desc" : "Enables the Super/Windows key",
+        "tip" : "Whether to enable or not the Super/Windows key.",
         "pIcon" : "superkey",
         "param" : "winkey",
         "module" : legionMod,
@@ -31,7 +33,8 @@ Item {
         "value" : -1,
     },{
         "name" : "Touchpad",
-        "desc" : "Whether to enable or not the laptop's touchpad",
+        "desc" : "Enables the laptop's touchpad",
+        "tip" : "Whether to enable or not the laptop's touchpad.",
         "pIcon" : "touchpad",
         "param" : "touchpad",
         "module" : legionMod,
@@ -39,7 +42,8 @@ Item {
         "value" : -1,
     },{
         "name" : "Battery conservation mode",
-        "desc" : "When enabled, the battery will not charge above a certain value (usually around 50-70%) in order to extend its lifespan.",
+        "desc" : "Limits the charge of the battery to extend its lifespan",
+        "tip" : "When enabled, the battery will not charge above a certain value (usually around 50-70%) in order to extend its lifespan.",
         "pIcon" : "batsave",
         "param" : "conservation_mode",
         "module" : ideapadMod,
@@ -47,7 +51,8 @@ Item {
         "value" : -1,
     },{
         "name" : "Rapid charge mode",
-        "desc" : "Allows the battery to charge faster at the cost of its lifespan.",
+        "desc" : "Allows the battery to charge faster",
+        "tip" : "When enabled, allows the battery to charge faster at the cost of its lifespan.",
         "pIcon" : "fastcharge",
         "param" : "rapidcharge",
         "module" : legionMod,
@@ -55,7 +60,8 @@ Item {
         "value" : -1,
     },{
         "name" : "USB always ON",
-        "desc" : "Keep the USB ports always powered even when the laptop is suspended.",
+        "desc" : "Keeps the USB ports always powered on",
+        "tip" : "Keeps the USB ports powered on even if the laptop is suspended.",
         "pIcon" : "usbcharging",
         "param" : "usb_charging",
         "module" : ideapadMod,
@@ -63,7 +69,8 @@ Item {
         "value" : -1,
     },{
         "name" : "Display overdrive",
-        "desc" : "Reduces the display latency in order to limit ghosting and trailing images.\nIncreases power consumption and may introduce other graphical defects.",
+        "desc" : "Reduces the laptop's display latency",
+        "tip" : "Reduces the display latency in order to limit ghosting and trailing images.\nIncreases power consumption and may introduce other graphical defects.",
         "pIcon" : "overdrive",
         "param" : "overdrive",
         "module" : legionMod,
@@ -71,7 +78,8 @@ Item {
         "value" : -1,
     },{
         "name" : "Hybrid graphics mode",
-        "desc" : "Enables the processor's integrated graphics.\nDecreases power consumption by allowing the dedicated GPU to power down and work only when necessary but slighty decreases performance.\nReboot is required to apply the change.",
+        "desc" : "Enables the laptop's integrated graphics",
+        "tip" : "Enables the processor's integrated graphics.\nDecreases power consumption by allowing the dedicated GPU to power down and work only when necessary but slighty decreases performance.\nReboot is required to apply the change.",
         "pIcon" : "hybrid",
         "param" : "gsync",
         "module" : legionMod,

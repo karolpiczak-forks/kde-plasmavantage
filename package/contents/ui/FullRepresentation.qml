@@ -8,63 +8,82 @@ import org.kde.kirigami 2.20 as Kirigami
 import org.kde.notification
 
 PlasmaExtras.Representation {
+    id: fullRep
 
-    implicitWidth: Kirigami.Units.gridUnit * 20
-    implicitHeight: mainList.height + Kirigami.Units.largeSpacing
+    focus: true
+    collapseMarginsHint: true
 
-    Layout.preferredWidth: implicitWidth
-    Layout.minimumWidth: implicitWidth
-    Layout.preferredHeight: implicitHeight
-    Layout.maximumHeight: implicitHeight
-    Layout.minimumHeight: implicitHeight
+    implicitWidth: Kirigami.Units.gridUnit * 30
+    implicitHeight: listView.implicitHeight + header.height + Kirigami.Units.largeSpacing
 
-    ListView {
-        id: mainList
-        model: vantageModel
+    header: PlasmaExtras.BasicPlasmoidHeading {}
 
-        interactive: false
-        spacing: Kirigami.Units.smallSpacing
+    contentItem: ListView {
+            id: listView
+            model: vantageModel
 
-        anchors.verticalCenter: parent.verticalCenter
-        width: parent.width
-        height: contentHeight
+            width: parent.width
+            implicitHeight: contentHeight
 
-        focus: true
-        delegate: PlasmaComponents.ItemDelegate {
-            //enabled: value == 0 || value == 1
-            width: parent ? parent.width : 0
-            contentItem: RowLayout {
-                Layout.fillWidth: true
-                Kirigami.Icon {
-                    scale: 0.8
-                    source: Qt.resolvedUrl("../../assets/icons/" + pIcon + ".svg")
-                    color: Kirigami.Theme.colorSet
-                    smooth: true
-                    isMask: true
-                }
-                /*Kirigami.Heading {
-                    Layout.fillWidth: true
-                    text: name
-                }*/
-                PlasmaComponents.Label {
-                    Layout.fillWidth: true
-                    text: name
-                    elide: Text.ElideRight
-                }
+            topMargin: Kirigami.Units.smallSpacing
+            bottomMargin: Kirigami.Units.smallSpacing
+            leftMargin: Kirigami.Units.smallSpacing
+            rightMargin: Kirigami.Units.smallSpacing
+            spacing: Kirigami.Units.smallSpacing
 
-                PlasmaComponents.Switch {
-                    Layout.alignment: Qt.AlignHCenter
-                    checked: value
-                    onToggled: {
-                        console.log(Qt.resolvedUrl("../../assets/icons/" + pIcon + ".svg"))
-                        //vantageMgr.toggleParam(module, param, 1-value)
-                        //checked = Qt.binding(() => value)
+            focus: true
+
+            delegate: PlasmaComponents.ItemDelegate {
+                width: parent ? parent.width : 0
+                contentItem: RowLayout {
+                    Kirigami.Icon {
+                        scale: 0.8
+                        source: Qt.resolvedUrl("../../assets/icons/" + pIcon + ".svg")
+                        color: Kirigami.Theme.colorSet
+                        smooth: true
+                        isMask: true
                     }
-                    HoverHandler { cursorShape: Qt.PointingHandCursor }
+                    Column {
+                        Layout.fillWidth: true
+                        Kirigami.Heading {
+                            width: parent.width
+                            level: 3
+                            text: name
+                            wrapMode: Text.WordWrap
+                        }
+                        PlasmaExtras.DescriptiveLabel {
+                            width: parent.width
+                            text: desc
+                            wrapMode: Text.WordWrap
+                            elide: Text.ElideRight
+                        }
+                    }
+                    PlasmaComponents.Button {
+                        enabled: value === 0 || value === 1
+                        contentItem: PlasmaComponents.Label {
+                            font.bold: true
+                            color: {
+                                if (value === 0) return Kirigami.Theme.negativeTextColor
+                                else if (value === 1) return Kirigami.Theme.positiveTextColor
+                                else return Kirigami.Theme.disabledTextColor
+                            }
+                            text: {
+                                if (value === 0) return "INACTIVE"
+                                else if (value === 1) return "ACTIVE"
+                                else return "N/A"
+                            }
+                        }
+                        onPressed: {
+                            vantageMgr.toggleParam(module, param, 1-value)
+                        }
+                        HoverHandler { cursorShape: Qt.PointingHandCursor }
+                    }
                 }
+                HoverHandler { cursorShape: Qt.WhatsThisCursor }
+                PlasmaComponents.ToolTip { text: tip }
             }
-            HoverHandler { cursorShape: Qt.WhatsThisCursor}
-            PlasmaComponents.ToolTip { text: desc }
         }
-    }
+        Component.onCompleted: {
+            console.log(listView.height)
+        }
 }
