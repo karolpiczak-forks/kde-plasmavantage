@@ -8,13 +8,14 @@ import org.kde.plasma.core as PlasmaCore
 PlasmoidItem {
     id: root
 
-    property var vantageModel: ListModel { }
+    property var vantageModel: VantageControls {}
     VantageManager { id: vantageMgr }
 
     compactRepresentation: CompactRepresentation {}
-    fullRepresentation: FullRepresentation { }
+    fullRepresentation: FullRepresentation {}
 
-    preferredRepresentation: compactRepresentation
+    switchWidth: Kirigami.Units.gridUnit * 20
+    switchHeight: Kirigami.Units.gridUnit * 10
 
     Plasmoid.icon: "computer-laptop-symbolic"
     Plasmoid.status: PlasmaCore.Types.ActiveStatus

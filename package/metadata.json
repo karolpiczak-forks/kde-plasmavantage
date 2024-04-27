@@ -7,8 +7,8 @@
             }
         ],
         "Category": "Utilities",
-        "Description": "Take full control of your Lenovo Legion laptop",
-        "Description[fr]": "Prenez le contrôle de votre ordinateur Lenovo Legion",
+        "Description": "Get the most of your Lenovo Legion laptop",
+        "Description[fr]": "Tirez le meilleur de votre ordinateur Lenovo Legion",
         "Icon": "computer-laptop-symbolic",
         "Id": "com.gitlab.scias.plasmavantage",
         "Name": "PlasmaVantage",
@@ -18,5 +18,7 @@
         "Website": "https://www.gitlab.com/Scias/plasmavantage"
     },
     "KPackageStructure": "Plasma/Applet",
-    "X-Plasma-API-Minimum-Version": "6.0"
+    "X-Plasma-API-Minimum-Version": "6.0",
+    "X-Plasma-NotificationArea": "true",
+    "X-Plasma-NotificationAreaCategory": "Hardware"
 }

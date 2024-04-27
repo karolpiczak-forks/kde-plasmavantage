@@ -13,16 +13,20 @@ PlasmaExtras.Representation {
     focus: true
     collapseMarginsHint: true
 
-    implicitWidth: Kirigami.Units.gridUnit * 30
-    implicitHeight: listView.implicitHeight + header.height + Kirigami.Units.largeSpacing
+    //implicitWidth: Kirigami.Units.gridUnit * 30
+    //implicitHeight: listView.implicitHeight + header.height + Kirigami.Units.largeSpacing
+    Layout.preferredWidth: Kirigami.Units.gridUnit * 30
+    Layout.preferredHeight: listView.implicitHeight + header.height + Kirigami.Units.largeSpacing
 
     header: PlasmaExtras.BasicPlasmoidHeading {}
 
-    contentItem: ListView {
+    contentItem: PlasmaComponents.ScrollView {
+        contentWidth: availableWidth - contentItem.leftMargin - contentItem.rightMargin
+        ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
+        ListView {
             id: listView
             model: vantageModel
 
-            width: parent.width
             implicitHeight: contentHeight
 
             topMargin: Kirigami.Units.smallSpacing
@@ -74,16 +78,21 @@ PlasmaExtras.Representation {
                             }
                         }
                         onPressed: {
+                            tooltip.hide()
                             vantageMgr.toggleParam(module, param, 1-value)
                         }
                         HoverHandler { cursorShape: Qt.PointingHandCursor }
                     }
                 }
                 HoverHandler { cursorShape: Qt.WhatsThisCursor }
-                PlasmaComponents.ToolTip { text: tip }
+                PlasmaComponents.ToolTip {
+                    id: tooltip
+                    text: tip
+                }
             }
         }
         Component.onCompleted: {
             console.log(listView.height)
         }
+    }
 }
