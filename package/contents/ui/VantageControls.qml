@@ -14,7 +14,7 @@ ListModel {
     ListElement {
         name: "Super key"
         desc: "Enables the Super/Windows key"
-        tip: "Whether to enable or not the Super/Windows key."
+        tip: "Whether to enable or not the Super (Windows) key."
         pIcon: "superkey"
         param: "winkey"
         module: "legion"
@@ -52,7 +52,7 @@ ListModel {
         value: -1
     }
     ListElement {
-        name: "USB always ON"
+        name: "Always On USB"
         desc: "Keeps the USB ports always powered on"
         tip: "Keeps the USB ports powered on even if the laptop is suspended."
         pIcon: "usbcharging"
@@ -62,7 +62,7 @@ ListModel {
         value: -1
     }
     ListElement {
-        name: "Display overdrive"
+        name: "Display Overdrive"
         desc: "Reduces the laptop's display latency"
         tip: "Reduces the display latency in order to limit ghosting and trailing images.\nIncreases power consumption and may introduce other graphical defects."
         pIcon: "overdrive"

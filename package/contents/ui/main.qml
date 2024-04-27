@@ -17,11 +17,11 @@ PlasmoidItem {
     switchWidth: Kirigami.Units.gridUnit * 20
     switchHeight: Kirigami.Units.gridUnit * 10
 
-    Plasmoid.icon: "computer-laptop-symbolic"
+    Plasmoid.icon: Qt.resolvedUrl("../../assets/plasmoid.svg")
     Plasmoid.status: PlasmaCore.Types.ActiveStatus
 
-    toolTipMainText: "PlasmaVantage"
-    toolTipSubText: "Take full control of your Lenovo laptop"
+    //toolTipMainText: "PlasmaVantage"
+    //toolTipSubText: "Take full control of your Lenovo laptop"
 
     Component.onCompleted: {
         vantageMgr.initialize()

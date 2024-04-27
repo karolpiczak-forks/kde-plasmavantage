@@ -34,4 +34,8 @@ Coming soon...
 
 ## License
 
-Mozilla Public License 2.0
+Mozilla Public License 2.0.
+
+## Credits
+
+Some of the icons used in this project are derivative work from [SVGRepo](https://www.svgrepo.com).

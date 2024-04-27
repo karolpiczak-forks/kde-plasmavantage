@@ -1,10 +1,11 @@
-import QtQuick 2.15
-import QtQuick.Layouts 1.15
+import QtQuick
+import QtQuick.Layouts
+import QtQuick.Controls
 
 import org.kde.plasma.plasmoid
 import org.kde.plasma.components as PlasmaComponents
 import org.kde.plasma.extras as PlasmaExtras
-import org.kde.kirigami 2.20 as Kirigami
+import org.kde.kirigami as Kirigami
 import org.kde.notification
 
 PlasmaExtras.Representation {
@@ -38,6 +39,7 @@ PlasmaExtras.Representation {
             focus: true
 
             delegate: PlasmaComponents.ItemDelegate {
+                enabled: value == 0 || value == 1
                 width: parent ? parent.width : 0
                 contentItem: RowLayout {
                     Kirigami.Icon {
