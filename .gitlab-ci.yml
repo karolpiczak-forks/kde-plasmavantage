@@ -14,13 +14,13 @@ zip_job:
     - if: $CI_COMMIT_TAG
   artifacts:
     paths:
-      - plasmoid/${PLASMOID_PKG}
+      - package/${PLASMOID_PKG}
   before_script:
     - apt-get update
     - apt-get install -q -y --no-install-recommends zip
   script:
     - echo "Creating Plasmoid package..."
-    - cd plasmoid
+    - cd package
     - zip -r ${PLASMOID_PKG} metadata.json assets/ contents/
 
 upload_job:
@@ -34,7 +34,7 @@ upload_job:
   script:
     - echo "Uploading package to registry..."
     - |
-      curl --header "JOB-TOKEN: ${CI_JOB_TOKEN}" --upload-file plasmoid/${PLASMOID_PKG} "${PACKAGE_REGISTRY_URL}/${PLASMOID_PKG}"
+      curl --header "JOB-TOKEN: ${CI_JOB_TOKEN}" --upload-file package/${PLASMOID_PKG} "${PACKAGE_REGISTRY_URL}/${PLASMOID_PKG}"
 
 release_job:
   needs:
