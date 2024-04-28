@@ -1,4 +1,4 @@
-<div align="center">![plasmoid](screenshots/v1.0.png)</div>
+<div align="center">![plasmoid](screenshots/v0.1.png)</div>
 
 # PlasmaVantage for Plasma 6
 
