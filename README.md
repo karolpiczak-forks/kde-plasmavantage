@@ -1,6 +1,9 @@
+<div align="center">![plasmoid](screenshots/v1.0.png)</div>
+
 # PlasmaVantage for Plasma 6
 
-This plasmoid allows you to easily control features of your Lenovo Legion laptop series such as battery fast charging, conservation mode, hybrid graphics and more that are exposed by the [LenovoLegionLinux](https://github.com/johnfanv2/LenovoLegionLinux) and Ideapad kernel modules.
+This plasmoid allows you to easily control features of your Lenovo Legion or Ideapad laptop series such as battery fast charging, conservation mode, hybrid graphics and more that are exposed by the [LenovoLegionLinux](https://github.com/johnfanv2/LenovoLegionLinux) and Ideapad kernel modules.
+This is meant to offer an alternative to the official, proprietary and Windows-only Lenovo Vantage.
 
 ## Requirements
 
@@ -9,11 +12,13 @@ This plasmoid allows you to easily control features of your Lenovo Legion laptop
 
 ## Disclaimer
 
-- This is just a hobby project and is **not affiliated with Lenovo in any way**.
+- This is just a hobby project and is **NOT AFFILIATED WITH LENOVO IN ANY WAY**.
 - This plasmoid just uses sysfs interfaces provided by LenovoLegionLinux and ideapad modules. Since Lenovo never officially supported these interfaces on Linux, many of them were discovered through reverse engineering and ACPI disassembling.
-Therefore, just like LLL or the Linux kernel, **this comes with no warranty and you should only use this at your own risk**.
+Therefore, just like LLL or the Linux kernel, **THIS COMES WITH NO WARRANTY AND SHOULD BE USED AT YOUR OWN RISK**.
 
 ## Issues
+
+Please open an issue if you can toggle options using legion_gui/_cli but not with this plasmoid.
 
 - The controls state will not refresh if the plasmoid is expanded and the user uses Fn buttons or another tool to switch one of the controls.
 
