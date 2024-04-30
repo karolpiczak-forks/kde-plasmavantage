@@ -41,7 +41,7 @@ Item {
         if (module == "legion") sysfsPath = legionModPath
         else if (module == "ideapad") sysfsPath = ideapadModPath
         else return
-        executable.exec(sudoPrefix + '"echo '+ value + " > " + sysfsPath + param + '"')
+        executable.exec("LANG=C echo "+ value + " > " + sysfsPath + param, false)
     }
 
     // TODO: Give each control its own Datasource object
@@ -56,10 +56,9 @@ Item {
             const stderr = data["stderr"]
 
             alog("Exec: " + cmd)
+            if (stderr) alog("ERROR: " + stderr)
 
             disconnectSource(cmd)
-
-            if (stderr) console.warn("ERROR: " + stderr)
 
             let index
             for (index = 0; index < vantageModel.count; index++) {
@@ -69,22 +68,30 @@ Item {
             if (index >= vantageModel.count) return
 
             let control = vantageModel.get(index)
-            if (cmd.startsWith("cat")) {
+            if (cmd.startsWith("cat") && !stderr) {
                 let newValue = parseInt(stdout)
                 if (newValue == 0 || newValue == 1 && control.value != newValue) {
                     alog("Element update: " + control.param + " from " + control.value + " to " + newValue)
                     control.value = newValue
                 }
-                return
             }
-
-            // Read again after writing
-            readParam(control.module, control.param)
+            else if (cmd.includes("echo")) {
+                if (stderr.includes("Permission")) {
+                    alog("Permission denied, retrying as root...")
+                    exec(cmd, true)
+                }
+                else if (!stderr) {
+                    // Read again after successful writing
+                    readParam(control.module, control.param)
+                }
+            }
         }
 
-        function exec(cmd) {
-            if (cmd) connectSource(cmd)
+        function exec(cmd, root) {
+            if (!root) connectSource(cmd)
+            else connectSource(sudoPrefix + '"' + cmd + '"')
         }
+
     }
 
     function updateModel() {
