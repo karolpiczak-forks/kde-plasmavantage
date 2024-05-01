@@ -40,7 +40,6 @@ PlasmaExtras.Representation {
             reuseItems: true
 
             delegate: PlasmaComponents.ItemDelegate {
-                property bool busy: false
                 property bool needsReboot: false
                 enabled: value == 0 || value == 1
                 width: parent ? parent.width : 0
@@ -98,19 +97,39 @@ PlasmaExtras.Representation {
                         HoverHandler { cursorShape: Qt.PointingHandCursor }
                     }
                 }
+
                 HoverHandler { cursorShape: Qt.WhatsThisCursor }
+
                 PlasmaComponents.ToolTip {
                     id: tooltip
                     text: tip
                 }
 
+                Notification {
+                    id: notif
+                    property var rebootAction: NotificationAction {
+                        label: "Reboot now"
+                        onActivated: vantageMgr.reboot()
+                    }
+                    componentName: "plasma_workspace"
+                    eventId: "notification"
+                    title: i18n("PlasmaVanced")
+                    text: {
+                        let nValue = reboot ? 1-value : value
+                        let pValue = nValue === 0 ? "disabled" : "enabled"
+                        return reboot ? "<b>" + name + "</b> will be <b>" + pValue + "</b> after the next reboot." : "<b>" + name + "</b> is now <b>" + pValue + "</b>."
+                    }
+                    iconName: "computer-laptop"
+                    actions: reboot ? rebootAction : []
+                }
+
                 Connections {
                     target: vantageMgr
 
-                    function onReady(rparam, rebootFlag) {
-                        if (rparam === param) {
-                            busy = false
-                            if (rebootFlag) {
+                    function onReady(rparam, success) {
+                        if (rparam === param && success) {
+                            notif.sendEvent()
+                            if (reboot) {
                                 needsReboot = true
                                 if (root.expanded) rebootDialog.open()
                             }

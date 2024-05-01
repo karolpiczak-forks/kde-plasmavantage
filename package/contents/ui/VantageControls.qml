@@ -9,6 +9,7 @@ ListModel {
         param: "fn_lock"
         module: "ideapad"
         reboot: false
+        busy: false
         value: -1
     }
     ListElement {
@@ -19,6 +20,7 @@ ListModel {
         param: "winkey"
         module: "legion"
         reboot: false
+        busy: false
         value: -1
     }
     ListElement {
@@ -29,6 +31,7 @@ ListModel {
         param: "touchpad"
         module: "legion"
         reboot: false
+        busy: false
         value: -1
     }
     ListElement {
@@ -39,6 +42,7 @@ ListModel {
         param: "conservation_mode"
         module: "ideapad"
         reboot: false
+        busy: false
         value: -1
     }
     ListElement {
@@ -49,6 +53,7 @@ ListModel {
         param: "rapidcharge"
         module: "legion"
         reboot: false
+        busy: false
         value: -1
     }
     ListElement {
@@ -59,6 +64,7 @@ ListModel {
         param: "usb_charging"
         module: "ideapad"
         reboot: false
+        busy: false
         value: -1
     }
     ListElement {
@@ -69,6 +75,7 @@ ListModel {
         param: "overdrive"
         module: "legion"
         reboot: false
+        busy: false
         value: -1
     }
     ListElement {
@@ -79,6 +86,7 @@ ListModel {
         param: "gsync"
         module: "legion"
         reboot: true
+        busy: false
         value: -1
     }
 }

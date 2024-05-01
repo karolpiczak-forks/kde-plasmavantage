@@ -74,6 +74,7 @@ Item {
                     alog("Element update: " + control.param + " from " + control.value + " to " + newValue)
                     control.value = newValue
                 }
+                control.busy = false
             }
             else if (cmd.includes("echo")) {
                 if (stderr.includes("Permission")) {
@@ -82,11 +83,11 @@ Item {
                     return
                 }
                 else if (!stderr) {
-                    ready(control.param, control.reboot)
-                    // Read again after successful writing
                     readParam(control.module, control.param)
+                    ready(control.param, true)
                 }
                 else {
+                    control.busy = false
                     ready(control.param, false)
                 }
             }
@@ -115,5 +116,5 @@ Item {
         console.log("PlasmaVantage: " + msg)
     }
 
-    signal ready(string param, bool rebootFlag)
+    signal ready(string param, bool success)
 }
