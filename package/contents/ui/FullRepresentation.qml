@@ -93,6 +93,7 @@ PlasmaExtras.Representation {
                                 tooltip.hide()
                                 vantageMgr.toggleParam(module, param, 1-value)
                             }
+                            else if (needsReboot && root.expanded) rebootDialog.open()
                         }
                         HoverHandler { cursorShape: Qt.PointingHandCursor }
                     }
@@ -109,11 +110,24 @@ PlasmaExtras.Representation {
                     function onReady(rparam, rebootFlag) {
                         if (rparam === param) {
                             busy = false
-                            if (rebootFlag) needsReboot = true
+                            if (rebootFlag) {
+                                needsReboot = true
+                                if (root.expanded) rebootDialog.open()
+                            }
                         }
                     }
                 }
             }
         }
     }
+
+    Kirigami.PromptDialog {
+        id: rebootDialog
+        title: i18n("Reboot required")
+        subtitle: i18n("The system needs to be restarted for this setting to take effect, do you want to reboot now?")
+        standardButtons: Kirigami.Dialog.Ok | Kirigami.Dialog.Cancel
+
+        onAccepted: vantageMgr.reboot()
+    }
+
 }

@@ -14,7 +14,7 @@
         "Name": "PlasmaVantage",
         "Name[fr]": "PlasmaVantage",
         "EnabledByDefault": true,
-        "Version": "0.20",
+        "Version": "0.21",
         "License": "Mozilla Public License 2.0",
         "Website": "https://www.gitlab.com/Scias/plasmavantage"
     },

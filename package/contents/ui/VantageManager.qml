@@ -107,6 +107,10 @@ Item {
         }
     }
 
+    function reboot() {
+        session["requestReboot"](0)
+    }
+
     function alog(msg) {
         console.log("PlasmaVantage: " + msg)
     }

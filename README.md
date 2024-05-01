@@ -47,11 +47,11 @@ Coming soon...
 - [ ] Customize and rearrange controls
 - [ ] Customize plasmoid/tray icon
 - [ ] Add an icons-only compact mode
-- [ ] Show prompt to reboot for settings that need it to apply
+- [X] Show prompt to reboot for settings that need it to apply
 - [ ] Localisation support
 - [X] Password-less operation (v0.20)
 - [ ] Notifications / OSD
-- [ ] Requirements checks & error detection
+- [ ] Requirements checks & better error detection
 - [ ] Support Thinkpads and possibly other laptop drivers
 
 ## License
