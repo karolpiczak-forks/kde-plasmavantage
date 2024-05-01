@@ -7,8 +7,22 @@ This is meant to offer an alternative to the official, proprietary and Windows-o
 
 ## Requirements
 
-- [LenovoLegionLinux](https://github.com/johnfanv2/LenovoLegionLinux) kernel module
-- Ideapad kernel module (Included in mainline Linux)
+- [LenovoLegionLinux](https://github.com/johnfanv2/LenovoLegionLinux) kernel module for:
+-- Windows key toggle
+-- Touchpad toggle
+-- Battery fast charge mode
+-- Display overdrive
+-- Hybrid GPU mode
+- Ideapad kernel module (Included in mainline Linux) for:
+-- Fn lock toggle
+-- Battery conservation mode
+-- Always ON USB charging
+
+## Password-less operation
+
+The plasmoid supports password-less operation however by default sysfs files are only writeable by root. If you don't want to input your password for every change, you have to make the relevant sysfs files writeable by the user.
+A systemd service file is available in `contents/util/plasmavantage-noroot.service` that sets the correct permissions for passwordless operation.
+To manually set this up and for subsequent boots after installing the plasmoid: `sudo -E sh -c "cp $HOME/.local/share/plasma/plasmoids/com.gitlab.scias.plasmavantage/contents/util/plasmavantage-noroot.service /etc/systemd/system && systemctl enable --now plasmavantage-noroot.service"`
 
 ## Disclaimer
 
@@ -31,11 +45,12 @@ Coming soon...
 - [ ] Improve look and feel
 - [ ] Customize and rearrange controls
 - [ ] Customize plasmoid/tray icon
-- [ ] Add icons-only compact mode
-- [ ] Propose to reboot for settings that need it to apply
-- [ ] Password-less operation
+- [ ] Add an icons-only compact mode
+- [ ] Show prompt to reboot for settings that need it to apply
+- [X] Password-less operation (v0.20)
 - [ ] Notifications / OSD
 - [ ] Requirements checks & error detection
+- [ ] Support Thinkpads and possibly other laptop drivers
 
 ## License
 

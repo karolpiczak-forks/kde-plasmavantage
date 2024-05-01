@@ -79,10 +79,15 @@ Item {
                 if (stderr.includes("Permission")) {
                     alog("Permission denied, retrying as root...")
                     exec(cmd, true)
+                    return
                 }
                 else if (!stderr) {
+                    ready(control.param, control.reboot)
                     // Read again after successful writing
                     readParam(control.module, control.param)
+                }
+                else {
+                    ready(control.param, false)
                 }
             }
         }
@@ -105,4 +110,6 @@ Item {
     function alog(msg) {
         console.log("PlasmaVantage: " + msg)
     }
+
+    signal ready(string param, bool rebootFlag)
 }

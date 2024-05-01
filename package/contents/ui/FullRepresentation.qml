@@ -37,8 +37,11 @@ PlasmaExtras.Representation {
             spacing: Kirigami.Units.smallSpacing
 
             focus: true
+            reuseItems: true
 
             delegate: PlasmaComponents.ItemDelegate {
+                property bool busy: false
+                property bool needsReboot: false
                 enabled: value == 0 || value == 1
                 width: parent ? parent.width : 0
                 contentItem: RowLayout {
@@ -66,22 +69,30 @@ PlasmaExtras.Representation {
                     }
                     PlasmaComponents.Button {
                         enabled: value === 0 || value === 1
+                        checkable: false
                         contentItem: PlasmaComponents.Label {
                             font.bold: true
                             color: {
+                                if (needsReboot) return Kirigami.Theme.neutralTextColor
+                                if (busy) return Kirigami.Theme.visitedLinkColor
                                 if (value === 0) return Kirigami.Theme.negativeTextColor
-                                else if (value === 1) return Kirigami.Theme.positiveTextColor
-                                else return Kirigami.Theme.disabledTextColor
+                                if (value === 1) return Kirigami.Theme.positiveTextColor
+                                return Kirigami.Theme.disabledTextColor
                             }
                             text: {
+                                if (needsReboot) return "REBOOT"
+                                if (busy) return "PENDING"
                                 if (value === 0) return "INACTIVE"
-                                else if (value === 1) return "ACTIVE"
-                                else return "N/A"
+                                if (value === 1) return "ACTIVE"
+                                return "N/A"
                             }
                         }
                         onPressed: {
-                            tooltip.hide()
-                            vantageMgr.toggleParam(module, param, 1-value)
+                            if (!needsReboot && !busy) {
+                                busy = true
+                                tooltip.hide()
+                                vantageMgr.toggleParam(module, param, 1-value)
+                            }
                         }
                         HoverHandler { cursorShape: Qt.PointingHandCursor }
                     }
@@ -91,10 +102,18 @@ PlasmaExtras.Representation {
                     id: tooltip
                     text: tip
                 }
+
+                Connections {
+                    target: vantageMgr
+
+                    function onReady(rparam, rebootFlag) {
+                        if (rparam === param) {
+                            busy = false
+                            if (rebootFlag) needsReboot = true
+                        }
+                    }
+                }
             }
-        }
-        Component.onCompleted: {
-            console.log(listView.height)
         }
     }
 }
