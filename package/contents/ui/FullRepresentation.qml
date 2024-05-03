@@ -79,11 +79,11 @@ PlasmaExtras.Representation {
                                 return Kirigami.Theme.disabledTextColor
                             }
                             text: {
-                                if (needsReboot) return "REBOOT"
-                                if (busy) return "PENDING"
-                                if (value === 0) return "INACTIVE"
-                                if (value === 1) return "ACTIVE"
-                                return "N/A"
+                                if (needsReboot) return i18n("REBOOT")
+                                if (busy) return i18n("PENDING")
+                                if (value === 0) return i18n("INACTIVE")
+                                if (value === 1) return i18n("ACTIVE")
+                                return i18n("N/A")
                             }
                         }
                         onPressed: {
@@ -108,7 +108,7 @@ PlasmaExtras.Representation {
                 Notification {
                     id: notif
                     property var rebootAction: NotificationAction {
-                        label: "Reboot now"
+                        label: i18n("Reboot now")
                         onActivated: vantageMgr.reboot()
                     }
                     componentName: "plasma_workspace"
@@ -116,8 +116,8 @@ PlasmaExtras.Representation {
                     title: i18n("PlasmaVanced")
                     text: {
                         let nValue = reboot ? 1-value : value
-                        let pValue = nValue === 0 ? "disabled" : "enabled"
-                        return reboot ? "<b>" + name + "</b> will be <b>" + pValue + "</b> after the next reboot." : "<b>" + name + "</b> is now <b>" + pValue + "</b>."
+                        let pValue = nValue === 0 ? i18n("disabled") : i18n("enabled")
+                        return reboot ? "<b>" + name + i18n("</b> will be <b>") + pValue + i18n("</b> after the next reboot.") : "<b>" + name + i18n("</b> is now <b>") + pValue + "</b>."
                     }
                     iconName: "computer-laptop"
                     actions: reboot ? rebootAction : []

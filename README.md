@@ -39,7 +39,9 @@ Please open an issue if you can toggle options using legion_gui/_cli but not wit
 
 ## Translations
 
-Coming soon...
+- [X] French
+
+If you wish to contribute your own, send your `language.po` made from `translate/template.pot` via a merge request or an issue.
 
 ## Roadmap / TODO
 
@@ -48,7 +50,7 @@ Coming soon...
 - [ ] Customize plasmoid/tray icon
 - [ ] Add an icons-only compact mode
 - [X] Show prompt to reboot for settings that need it to apply (v0.21)
-- [ ] Localisation support
+- [X] Localisation support (v0.25)
 - [X] Password-less operation (v0.20)
 - [X] Notifications (v0.22)
 - [ ] OSD

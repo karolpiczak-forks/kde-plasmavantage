@@ -8,7 +8,7 @@ import org.kde.plasma.core as PlasmaCore
 PlasmoidItem {
     id: root
 
-    property var vantageModel: VantageControls {}
+    property var vantageModel: ListModel {}
     VantageManager { id: vantageMgr }
 
     compactRepresentation: CompactRepresentation {}

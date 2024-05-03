@@ -14,15 +14,85 @@ Item {
     readonly property string ylogoLedPath: "/sys/class/leds/platform::ylogo/brightness/"
     readonly property string ioportLedPath: "/sys/class/leds/platform::ioport/brightness/"
 
+    readonly property var vantageControls: [{
+        "name" : i18n("Fn lock"),
+        "desc" : i18n("Access multimedia keys without holding Fn"),
+        "tip" : i18n("When enabled, the multimedia functions will be accessible without having to hold the Fn key."),
+        "pIcon" : "fnlock",
+        "param" : "fn_lock",
+        "module" : "ideapad"
+    },{
+        "name" : i18n("Super key"),
+        "desc" : i18n("Enables the Super/Windows key"),
+        "tip" : i18n("Whether to enable or not the Super (Windows) key."),
+        "pIcon" : "superkey",
+        "param" : "winkey",
+        "module" : "legion"
+    },{
+        "name" : i18n("Touchpad"),
+        "desc" : i18n("Enables the laptop's touchpad"),
+        "tip" : i18n("Whether to enable or not the laptop's touchpad."),
+        "pIcon" : "touchpad",
+        "param" : "touchpad",
+        "module" : "legion"
+    },{
+        "name" : i18n("Battery conservation mode"),
+        "desc" : i18n("Limits the charge of the battery to extend its lifespan"),
+        "tip" : i18n("When enabled, the battery will not charge above a certain value (usually around 50-70%) in order to extend its lifespan."),
+        "pIcon" : "batsave",
+        "param" : "conservation_mode",
+        "module" : "ideapad"
+    },{
+        "name" : i18n("Battery fast charge mode"),
+        "desc" : i18n("Allows the battery to charge faster"),
+        "tip" : i18n("When enabled, allows the battery to charge faster at the cost of its lifespan."),
+        "pIcon" : "fastcharge",
+        "param" : "rapidcharge",
+        "module" : "legion"
+    },{
+        "name" : i18n("Always On USB"),
+        "desc" : i18n("Keeps the USB ports always powered on"),
+        "tip" : i18n("Keeps the USB ports powered on even if the laptop is suspended."),
+        "pIcon" : "usbcharging",
+        "param" : "usb_charging",
+        "module" : "ideapad"
+    },{
+        "name" : i18n("Display Overdrive"),
+        "desc" : i18n("Reduces the laptop's display latency"),
+        "tip" : i18n("Reduces the display latency in order to limit ghosting and trailing images.\nIncreases power consumption and may introduce other graphical defects."),
+        "pIcon" : "overdrive",
+        "param" : "overdrive",
+        "module" : "legion"
+    },{
+        "name" : i18n("Hybrid graphics mode"),
+        "desc" : i18n("Enables the laptop's integrated graphics"),
+        "tip" : i18n("Enables the processor's integrated graphics.\nDecreases power consumption by allowing the dedicated GPU to power down and work only when necessary but slighty decreases performance.\nReboot is required to apply the change."),
+        "pIcon" : "hybrid",
+        "param" : "gsync",
+        "module" : "legion",
+        "reboot" : true
+    }]
+
     SessionManagement {
         id: session
     }
 
     function initialize() {
+        // TODO: Check for module path existing and skip if they aren't loaded'
         alog("Initialization...")
-        for (let i=0; i < vantageModel; i++) {
-            let control = vantageModel.get(i)
-            readParam(control.module, control.param)
+        for (let c of vantageControls) {
+            vantageModel.append({
+                "name" : c.name,
+                "desc" : c.desc,
+                "tip" : c.tip,
+                "pIcon" : c.pIcon,
+                "param" : c.param,
+                "module" : c.module,
+                "reboot" : "reboot" in c ? c.reboot : false,
+                "busy" : false,
+                "value" : -1,
+            })
+            readParam(c.module, c.param)
         }
     }
 

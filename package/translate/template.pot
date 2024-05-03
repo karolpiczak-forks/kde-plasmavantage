@@ -1,0 +1,175 @@
+# Translation of plasmavantage in LANGUAGE
+# Copyright (C) 2024
+# This file is distributed under the same license as the plasmavantage package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: plasmavantage\n"
+"Report-Msgid-Bugs-To: https://www.gitlab.com/Scias/plasmavantage\n"
+"POT-Creation-Date: 2024-05-03 23:03+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../contents/ui/FullRepresentation.qml
+msgid "REBOOT"
+msgstr ""
+
+#: ../contents/ui/FullRepresentation.qml
+msgid "PENDING"
+msgstr ""
+
+#: ../contents/ui/FullRepresentation.qml
+msgid "INACTIVE"
+msgstr ""
+
+#: ../contents/ui/FullRepresentation.qml
+msgid "ACTIVE"
+msgstr ""
+
+#: ../contents/ui/FullRepresentation.qml
+msgid "N/A"
+msgstr ""
+
+#: ../contents/ui/FullRepresentation.qml
+msgid "Reboot now"
+msgstr ""
+
+#: ../contents/ui/FullRepresentation.qml
+msgid "PlasmaVanced"
+msgstr ""
+
+#: ../contents/ui/FullRepresentation.qml
+msgid "disabled"
+msgstr ""
+
+#: ../contents/ui/FullRepresentation.qml
+msgid "enabled"
+msgstr ""
+
+#: ../contents/ui/FullRepresentation.qml
+msgid "</b> will be <b>"
+msgstr ""
+
+#: ../contents/ui/FullRepresentation.qml
+msgid "</b> after the next reboot."
+msgstr ""
+
+#: ../contents/ui/FullRepresentation.qml
+msgid "</b> is now <b>"
+msgstr ""
+
+#: ../contents/ui/FullRepresentation.qml
+msgid "Reboot required"
+msgstr ""
+
+#: ../contents/ui/FullRepresentation.qml
+msgid "The system needs to be restarted for this setting to take effect, do you want to reboot now?"
+msgstr ""
+
+#: ../contents/ui/VantageManager.qml
+msgid "Fn lock"
+msgstr ""
+
+#: ../contents/ui/VantageManager.qml
+msgid "Access multimedia keys without holding Fn"
+msgstr ""
+
+#: ../contents/ui/VantageManager.qml
+msgid "When enabled, the multimedia functions will be accessible without having to hold the Fn key."
+msgstr ""
+
+#: ../contents/ui/VantageManager.qml
+msgid "Super key"
+msgstr ""
+
+#: ../contents/ui/VantageManager.qml
+msgid "Enables the Super/Windows key"
+msgstr ""
+
+#: ../contents/ui/VantageManager.qml
+msgid "Whether to enable or not the Super (Windows) key."
+msgstr ""
+
+#: ../contents/ui/VantageManager.qml
+msgid "Touchpad"
+msgstr ""
+
+#: ../contents/ui/VantageManager.qml
+msgid "Enables the laptop's touchpad"
+msgstr ""
+
+#: ../contents/ui/VantageManager.qml
+msgid "Whether to enable or not the laptop's touchpad."
+msgstr ""
+
+#: ../contents/ui/VantageManager.qml
+msgid "Battery conservation mode"
+msgstr ""
+
+#: ../contents/ui/VantageManager.qml
+msgid "Limits the charge of the battery to extend its lifespan"
+msgstr ""
+
+#: ../contents/ui/VantageManager.qml
+msgid "When enabled, the battery will not charge above a certain value (usually around 50-70%) in order to extend its lifespan."
+msgstr ""
+
+#: ../contents/ui/VantageManager.qml
+msgid "Battery fast charge mode"
+msgstr ""
+
+#: ../contents/ui/VantageManager.qml
+msgid "Allows the battery to charge faster"
+msgstr ""
+
+#: ../contents/ui/VantageManager.qml
+msgid "When enabled, allows the battery to charge faster at the cost of its lifespan."
+msgstr ""
+
+#: ../contents/ui/VantageManager.qml
+msgid "Always On USB"
+msgstr ""
+
+#: ../contents/ui/VantageManager.qml
+msgid "Keeps the USB ports always powered on"
+msgstr ""
+
+#: ../contents/ui/VantageManager.qml
+msgid "Keeps the USB ports powered on even if the laptop is suspended."
+msgstr ""
+
+#: ../contents/ui/VantageManager.qml
+msgid "Display Overdrive"
+msgstr ""
+
+#: ../contents/ui/VantageManager.qml
+msgid "Reduces the laptop's display latency"
+msgstr ""
+
+#: ../contents/ui/VantageManager.qml
+msgid ""
+"Reduces the display latency in order to limit ghosting and trailing images.\n"
+"Increases power consumption and may introduce other graphical defects."
+msgstr ""
+
+#: ../contents/ui/VantageManager.qml
+msgid "Hybrid graphics mode"
+msgstr ""
+
+#: ../contents/ui/VantageManager.qml
+msgid "Enables the laptop's integrated graphics"
+msgstr ""
+
+#: ../contents/ui/VantageManager.qml
+msgid ""
+"Enables the processor's integrated graphics.\n"
+"Decreases power consumption by allowing the dedicated GPU to power down and work only when necessary but slighty decreases performance.\n"
+"Reboot is required to apply the change."
+msgstr ""
