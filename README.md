@@ -40,6 +40,7 @@ Please open an issue if you can toggle options using legion_gui/_cli but not wit
 ## Translations
 
 - [X] French
+- [X] Italian (by ThePirate42)
 
 If you wish to contribute your own, send your `language.po` made from `translate/template.pot` via a merge request or an issue.
 
