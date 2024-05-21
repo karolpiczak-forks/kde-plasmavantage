@@ -1,4 +1,4 @@
-# Translation of plasmavantage in LANGUAGE
+# Translation of plasmavantage in nl
 # Copyright (C) 2024
 # This file is distributed under the same license as the plasmavantage package.
 #
@@ -15,8 +15,6 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.12.3\n"
 
 #: ../contents/ui/FullRepresentation.qml
 msgid "REBOOT"
