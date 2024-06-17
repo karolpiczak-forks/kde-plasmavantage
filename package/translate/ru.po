@@ -1,0 +1,180 @@
+# Translation of plasmavantage in ru
+# Copyright (C) 2024
+# This file is distributed under the same license as the plasmavantage package.
+# ThisUsernameHasBeenTaken, 2024.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: plasmavantage\n"
+"Report-Msgid-Bugs-To: https://www.gitlab.com/Scias/plasmavantage\n"
+"POT-Creation-Date: 2024-05-03 23:03+0200\n"
+"PO-Revision-Date: 2024-06-13 23:14+0300\n"
+"Last-Translator: ThisUsernameHasBeenTaken\n"
+"Language-Team: \n"
+"Language: Russian\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../contents/ui/FullRepresentation.qml
+msgid "REBOOT"
+msgstr "ОЖИДАЕТ ПЕРЕЗАГРУЗКИ"
+
+#: ../contents/ui/FullRepresentation.qml
+msgid "PENDING"
+msgstr "В ОЖИДАНИИ"
+
+#: ../contents/ui/FullRepresentation.qml
+msgid "INACTIVE"
+msgstr "НЕАКТИВНО"
+
+#: ../contents/ui/FullRepresentation.qml
+msgid "ACTIVE"
+msgstr "АКТИВНО"
+
+#: ../contents/ui/FullRepresentation.qml
+msgid "N/A"
+msgstr "Н/Д"
+
+#: ../contents/ui/FullRepresentation.qml
+msgid "Reboot now"
+msgstr "Перезагрузить сейчас"
+
+#: ../contents/ui/FullRepresentation.qml
+msgid "PlasmaVanced"
+msgstr "PlasmaVanced"
+
+#: ../contents/ui/FullRepresentation.qml
+msgid "disabled"
+msgstr "отключен(а/о)"
+
+#: ../contents/ui/FullRepresentation.qml
+msgid "enabled"
+msgstr "включен(а/о)"
+
+#: ../contents/ui/FullRepresentation.qml
+msgid "</b> will be <b>"
+msgstr " будет "
+
+#: ../contents/ui/FullRepresentation.qml
+msgid "</b> after the next reboot."
+msgstr " после следующей перезагрузки."
+
+#: ../contents/ui/FullRepresentation.qml
+msgid "</b> is now <b>"
+msgstr " теперь "
+
+#: ../contents/ui/FullRepresentation.qml
+msgid "Reboot required"
+msgstr "Необходима перезагрузка"
+
+#: ../contents/ui/FullRepresentation.qml
+msgid "The system needs to be restarted for this setting to take effect, do you want to reboot now?"
+msgstr "Необходимо провести перезагрузку, что бы данная настройка вступила в силу. Хотите выполнить перезагрузку сейчас?"
+
+#: ../contents/ui/VantageManager.qml
+msgid "Fn lock"
+msgstr "Залипание Fn"
+
+#: ../contents/ui/VantageManager.qml
+msgid "Access multimedia keys without holding Fn"
+msgstr "Активировать мультимедиа клавиши без необходимости удержания Fn"
+
+#: ../contents/ui/VantageManager.qml
+msgid "When enabled, the multimedia functions will be accessible without having to hold the Fn key."
+msgstr "Когда включено, мультимедиа функции клавиш будут активны при нажатии без удержания клавиши Fn."
+
+#: ../contents/ui/VantageManager.qml
+msgid "Super key"
+msgstr "Клавиша Super"
+
+#: ../contents/ui/VantageManager.qml
+msgid "Enables the Super/Windows key"
+msgstr "Включает клавишу Super/Windows"
+
+#: ../contents/ui/VantageManager.qml
+msgid "Whether to enable or not the Super (Windows) key."
+msgstr "Включает или отключает клавишу Super (Windows)."
+
+#: ../contents/ui/VantageManager.qml
+msgid "Touchpad"
+msgstr "Сенсорная панель"
+
+#: ../contents/ui/VantageManager.qml
+msgid "Enables the laptop's touchpad"
+msgstr "Включает сенсорную панель ноутбука"
+
+#: ../contents/ui/VantageManager.qml
+msgid "Whether to enable or not the laptop's touchpad."
+msgstr "Включает или отключает сенсорную панель ноутбука."
+
+#: ../contents/ui/VantageManager.qml
+msgid "Battery conservation mode"
+msgstr "Режим сохранения аккумулятора"
+
+#: ../contents/ui/VantageManager.qml
+msgid "Limits the charge of the battery to extend its lifespan"
+msgstr "Ограничивает уровень заряда аккумулятора, продлевая его ресурс"
+
+#: ../contents/ui/VantageManager.qml
+msgid "When enabled, the battery will not charge above a certain value (usually around 50-70%) in order to extend its lifespan."
+msgstr "Когда включено, аккумулятор не будет заряжаться выше определённого значения (обычно около 50-70%), что бы продлить свой ресурс."
+
+#: ../contents/ui/VantageManager.qml
+msgid "Battery fast charge mode"
+msgstr "Быстрая зарядка"
+
+#: ../contents/ui/VantageManager.qml
+msgid "Allows the battery to charge faster"
+msgstr "Позволяет аккумулятору заряжаться быстрее, снижая его ресурс"
+
+#: ../contents/ui/VantageManager.qml
+msgid "When enabled, allows the battery to charge faster at the cost of its lifespan."
+msgstr "Когда включено, аккумулятор будет заряжаться быстрее (бóльшим током), что сократит его ресурс."
+
+#: ../contents/ui/VantageManager.qml
+msgid "Always On USB"
+msgstr "Питание от USB"
+
+#: ../contents/ui/VantageManager.qml
+msgid "Keeps the USB ports always powered on"
+msgstr "Всегда оставляет питание USB портов включенным"
+
+#: ../contents/ui/VantageManager.qml
+msgid "Keeps the USB ports powered on even if the laptop is suspended."
+msgstr "Оставляет включённым питание портов USB, даже если ноутбук выключен."
+
+#: ../contents/ui/VantageManager.qml
+msgid "Display Overdrive"
+msgstr "Снижение времени отклика экрана"
+
+#: ../contents/ui/VantageManager.qml
+msgid "Reduces the laptop's display latency"
+msgstr "Уменьшает время отклика экрана ноутбука"
+
+#: ../contents/ui/VantageManager.qml
+msgid ""
+"Reduces the display latency in order to limit ghosting and trailing images.\n"
+"Increases power consumption and may introduce other graphical defects."
+msgstr ""
+"Снижает время отклика экрана, уменьшая гостинг (ghosting) и эффект размытия изображений.\n"
+"Повышает потребление энергии, а также может привести к появлению дефектов изображения."
+
+#: ../contents/ui/VantageManager.qml
+msgid "Hybrid graphics mode"
+msgstr "Смешанный графический режим"
+
+#: ../contents/ui/VantageManager.qml
+msgid "Enables the laptop's integrated graphics"
+msgstr "Включает встроенный графический процессор ноутбука"
+
+#: ../contents/ui/VantageManager.qml
+msgid ""
+"Enables the processor's integrated graphics.\n"
+"Decreases power consumption by allowing the dedicated GPU to power down and work only when necessary but slighty decreases performance.\n"
+"Reboot is required to apply the change."
+msgstr ""
+"Включает встроенный графический процессор ноутбука.\n"
+"Снижает потребление энергии, позволяя внешнему графическому процессору отключаться и включаться вновь только когда он необходим. Может незначительно снижать производительность графики.\n"
+"Для применения изменений необходима перезагрузка."

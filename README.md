@@ -43,6 +43,7 @@ Please open an issue if you can toggle options using legion_gui/_cli but not wit
 - [X] Italian (by ThePirate42)
 - [X] Dutch (by Heimen Stoffels)
 - [X] Ukrainian (by cappelikan)
+- [X] Ukrainian (by ThisUsernameHasBeenTaken)
 
 If you wish to contribute your own, send your `language.po` made from `translate/template.pot` via a merge request or an issue.
 
