@@ -8,7 +8,6 @@ import org.kde.plasma.plasma5support as Plasma5Support
 // "/sys/class/leds/platform::ylogo/brightness"
 
 Item {
-    readonly property string sudoPrefix: "pkexec sh -c "
     readonly property string ideapadModPath: "/sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/"
     readonly property string legionModPath: "/sys/bus/platform/drivers/legion/PNP0C09:00/"
     readonly property string ylogoLedPath: "/sys/class/leds/platform::ylogo/brightness/"
@@ -111,7 +110,7 @@ Item {
         if (module == "legion") sysfsPath = legionModPath
         else if (module == "ideapad") sysfsPath = ideapadModPath
         else return
-        executable.exec("LANG=C echo "+ value + " > " + sysfsPath + param, false)
+        executable.exec("echo " + value + " | sudo /usr/bin/tee " + sysfsPath + param)
     }
 
     // TODO: Give each control its own Datasource object
@@ -163,9 +162,8 @@ Item {
             }
         }
 
-        function exec(cmd, root) {
-            if (!root) connectSource(cmd)
-            else connectSource(sudoPrefix + '"' + cmd + '"')
+        function exec(cmd) {
+            connectSource(cmd)
         }
 
     }
